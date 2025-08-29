@@ -1,17 +1,460 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>project_template_react</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宏达建筑安装公司 - 专业建筑安装解决方案</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1a5276;
+      --secondary-color: #2e86c1;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      padding-top: 76px;
+    }
+
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--dark-color);
+    }
+
+    .nav-link:hover {
+      color: var(--secondary-color);
+    }
+
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1503387762353-8c6637f89308?ixlib=rb-4.0.3') center/cover no-repeat;
+      color: white;
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 40px;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+      margin-top: 15px;
+    }
+
+    .service-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      margin-bottom: 30px;
+      background: white;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+
+    .project-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .project-card img {
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .testimonial-card {
+      background: var(--light-color);
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      padding: 12px 30px;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+
+    .contact-info {
+      margin-bottom: 30px;
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--secondary-color);
+      margin-right: 15px;
+    }
+
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <i class="fas fa-building me-2"></i>宏达建筑安装
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">关于我们</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">服务项目</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">成功案例</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">联系我们</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 英雄区域 -->
+<section id="home" class="hero-section">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-4">专业建筑安装解决方案</h1>
+    <p class="lead mb-4">提供全方位的建筑安装服务，从设计到施工一站式解决</p>
+    <a href="#contact" class="btn btn-primary btn-lg">联系我们</a>
+  </div>
+</section>
+
+<!-- 关于我们 -->
+<section id="about" class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="section-title">关于我们</h2>
+        <p class="lead">宏达建筑安装公司成立于2005年，拥有超过15年的行业经验。</p>
+        <p>我们专注于提供高质量的建筑安装服务，包括电气安装、管道系统、暖通空调和智能化建筑解决方案。公司拥有专业资质的技术团队和先进的施工设备，确保每一个项目都能按时保质完成。</p>
+        <p>我们的使命是通过专业的技术和优质的服务，为客户创造安全、舒适、高效的使用环境。</p>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 专业资质团队</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 高质量标准</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 先进施工设备</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 准时交付项目</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 完善售后服务</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> 环保施工理念</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3" alt="关于我们" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 服务项目 -->
+<section id="services" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title text-center">我们的服务</h2>
+    <p class="text-center lead mb-5">提供全方位专业建筑安装服务</p>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card text-center p-4">
+          <div class="service-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h4>电气安装</h4>
+          <p>专业电气系统设计、安装与维护，确保安全可靠的电力供应</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card text-center p-4">
+          <div class="service-icon">
+            <i class="fas fa-faucet"></i>
+          </div>
+          <h4>管道系统</h4>
+          <p>给排水系统设计安装，确保供水排水系统高效稳定运行</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card text-center p-4">
+          <div class="service-icon">
+            <i class="fas fa-wind"></i>
+          </div>
+          <h4>暖通空调</h4>
+          <p>专业的暖通空调系统设计与安装，创造舒适室内环境</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card text-center p-4">
+          <div class="service-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h4>智能建筑</h4>
+          <p>智能化建筑系统集成，提升建筑管理效率与安全性</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 成功案例 -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="section-title text-center">成功案例</h2>
+    <p class="text-center lead mb-5">我们已完成数百个建筑安装项目</p>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3" alt="商业大厦项目" class="img-fluid">
+          <div class="p-3">
+            <h4>环球商业大厦</h4>
+            <p>全套电气与智能化系统安装，建筑面积5万平方米</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3" alt="住宅项目" class="img-fluid">
+          <div class="p-3">
+            <h4>丽景花园住宅区</h4>
+            <p>全套给排水与暖通系统安装，共计12栋住宅楼</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1462826303086-329426d1aef5?ixlib=rb-4.0.3" alt="医院项目" class="img-fluid">
+          <div class="p-3">
+            <h4>市第一医院新院区</h4>
+            <p>专业医疗气体管道与电气系统安装</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 客户评价 -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title text-center">客户评价</h2>
+    <p class="text-center lead mb-5">听听我们的客户怎么说</p>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="testimonial-card">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="客户" class="testimonial-avatar">
+            <div>
+              <h5 class="mb-0">张建国</h5>
+              <p class="text-muted mb-0">环球地产项目经理</p>
+            </div>
+          </div>
+          <p class="mb-0">"宏达公司为我们完成了商业综合体的全套安装工程，专业的技术和严谨的态度给我们留下了深刻印象，工程质量完全超出预期。"</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="testimonial-card">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="客户" class="testimonial-avatar">
+            <div>
+              <h5 class="mb-0">李美娟</h5>
+              <p class="text-muted mb-0">市医院基建处处长</p>
+            </div>
+          </div>
+          <p class="mb-0">"医院新院区的安装工程非常复杂，宏达公司展现了极高的专业水平，特别是在医疗专用系统方面，为我们提供了完美的解决方案。"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系我们 -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="section-title text-center">联系我们</h2>
+    <p class="text-center lead mb-5">欢迎咨询任何问题或项目需求</p>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="contact-info">
+          <div class="d-flex align-items-center mb-4">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h5>公司地址</h5>
+              <p>北京市海淀区科技园区88号创新大厦B座15层</p>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center mb-4">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div>
+              <h5>联系电话</h5>
+              <p>+86 10 8888 7777</p>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center mb-4">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h5>电子邮箱</h5>
+              <p>info@hongdaconstruction.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <form>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="您的姓名" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="email" class="form-control" placeholder="电子邮箱" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="主题" required>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" rows="5" placeholder="您的消息" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">发送消息</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <h4>宏达建筑安装公司</h4>
+        <p>专业提供全方位建筑安装解决方案，致力于为客户创造更安全、舒适、高效的使用环境。</p>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <h4>快速链接</h4>
+        <ul class="list-unstyled">
+          <li><a href="#home" class="text-white text-decoration-none">首页</a></li>
+          <li><a href="#about" class="text-white text-decoration-none">关于我们</a></li>
+          <li><a href="#services" class="text-white text-decoration-none">服务项目</a></li>
+          <li><a href="#projects" class="text-white text-decoration-none">成功案例</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">联系我们</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <h4>关注我们</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-weixin"></i></a>
+          <a href="#"><i class="fab fa-weibo"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="bg-light">
+
+    <div class="text-center pt-3">
+      <p>&copy; 2023 宏达建筑安装公司. 保留所有权利.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
